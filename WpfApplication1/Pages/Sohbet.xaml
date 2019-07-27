@@ -1,0 +1,36 @@
+﻿<Page x:Class="WpfApplication1.Pages.Sohbet"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApplication1.Pages"
+      mc:Ignorable="d"
+      Title="Sohbet" Height="301.128" Width="355.263">
+    <Page.Resources>
+        <DataTemplate x:Key="DataTemplate1">
+            <Grid Height="50" Width="310">
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="54,0,0,0" TextWrapping="Wrap" Text="{Binding Zaman, FallbackValue=Zaman}" VerticalAlignment="Top" Width="130" FontSize="9.333"/>
+                <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="54,29,0,0" TextWrapping="Wrap" Text="{Binding Gönderi, FallbackValue=Gönderi}" VerticalAlignment="Top" Width="256" Height="17" FontWeight="Normal"/>
+                <Image x:Name="image" Height="Auto" Width="Auto" Margin="0,0,261,4" Source="{Binding Kullanıcı.Resim}"/>
+                <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="54,12,0,0" TextWrapping="Wrap" Text="{Binding Kullanıcı.KullanıcıAdı, FallbackValue=KullanıcıAdı}" VerticalAlignment="Top" Width="133" Height="17" FontWeight="Bold"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="DataTemplate2">
+            <Grid Height="31" Width="105">
+                <Image x:Name="image" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="37" Source="{Binding Resim}"/>
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="42,5,0,0" TextWrapping="Wrap" Text="{Binding KullanıcıAdı, FallbackValue=KullanıcıAdı}" VerticalAlignment="Top"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="White" Margin="0,0,-108,-42">
+        <ListBox x:Name="lbkullanıcılar" HorizontalAlignment="Left" Height="264" Margin="10,38,0,0" VerticalAlignment="Top" Width="95" ItemTemplate="{DynamicResource DataTemplate2}"/>
+        <ListBox x:Name="lbgönderiler" HorizontalAlignment="Left" Height="240" Margin="110,38,0,0" VerticalAlignment="Top" Width="334" ItemTemplate="{DynamicResource DataTemplate1}"/>
+        <TextBox x:Name="tbmesaj" HorizontalAlignment="Left" Height="50" Margin="105,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280"/>
+        <Button x:Name="btngönder" Content="Gönder" HorizontalAlignment="Left" Height="50" Margin="390,283,0,0" VerticalAlignment="Top" Width="49" Click="btngönder_Click" RenderTransformOrigin="2.659,0.42"/>
+        <TextBlock x:Name="tbkullanıcı" HorizontalAlignment="Left" Margin="40,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" RenderTransformOrigin="-0.095,0.25" Width="162" Height="23" FontSize="14.667"/>
+        <Button x:Name="btnçıkış" Content="Çıkış" HorizontalAlignment="Left" VerticalAlignment="Top" Width="59" Margin="369,6,0,0" Click="btnçıkış_Click"/>
+        <Button x:Name="btnprofılduzenle" Content="Profili Düzenle" HorizontalAlignment="Left" Margin="281,0,0,317" VerticalAlignment="Bottom" Width="83" Click="btnprofılduzenle_Click"/>
+
+    </Grid>
+</Page>
